@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student List</title>
+    <link rel="stylesheet" type="text/css" href="../static/csstemplate.css">
+</head>
+
+<body>
+
+    <h2>Student List</h2>
+    <div class="table-wrapper" >
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>E-mail</th>
+                    <th>Department</th>
+                    <th>Completed Credits</th>
+                    <th>GPA</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in students %}
+            <tr>
+                {% for value in row %}
+                <td>
+                    {{value}}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            <tbody>
+        </table>
+    </div>
+</body>
+
+</html>

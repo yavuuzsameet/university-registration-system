@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Available Classrooms</title>
+        <link rel="stylesheet" type="text/css" href="../static/csstemplate.css">
+    </head>
+
+    <body>
+        <h2>Available Classrooms</h2>
+    <div class="table-wrapper" >
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>Classroom ID</th>
+                    <th>Campus</th>
+                    <th>Classroom capacity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in classrooms %}
+            <tr>
+                {% for value in row %}
+                <td>
+                    {{value}}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            <tbody>
+        </table>
+    </div>
+    </body>
+</html>

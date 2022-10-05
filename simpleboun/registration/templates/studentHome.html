@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  	<title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
+        form { 
+            margin: 0 auto; 
+            width:250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h2> Welcome back {{username}}.</h2>
+    </div>
+    {% if action_fail %}
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">INVALID OPERATION</h4>
+        <p>Please try again.</p>
+    </div>
+    {% endif %}
+
+    <div class="center">
+        <form id="postform" class="form-group" method="POST" action="{%url 'view_all_courses' %}">
+            {%csrf_token%}
+            <br>
+            <label>View all courses:</label>
+            <br>
+            <input type="submit" name="submit" value="View Courses">
+            <br>
+        </form>
+    </div>
+
+    <div class="center">
+        <form id="postform" class="form-group" method="POST" action="{%url 'take_course' %}">
+            {%csrf_token%}
+            <br>
+            <label>Take course:</label>
+                <br>
+                <input type="text" name="courseid" placeholder="courseid" required>
+                <br>
+                <input type="submit" name="submit" value="Take Course">
+                <br>
+        </form>
+    </div>
+
+    <div class="center">
+        <form id="postform" class="form-group" method="POST" action="{%url 'view_taken_courses' %}">
+            {%csrf_token%}
+            <br>
+            <label>View taken courses:</label>
+            <br>
+            <input type="submit" name="submit" value="View Courses">
+            <br>
+        </form>
+    </div>
+
+    <div class="center">
+        <form id="postform" class="form-group" method="POST" action="{%url 'search' %}">
+            {%csrf_token%}
+            <br>
+            <label>Search keyword:</label>
+                <br>
+                <input type="text" name="data" placeholder="keyword" required>
+                <br>
+                <input type="submit" name="submit" value="View Courses">
+                <br>
+        </form>
+    </div>
+    
+    <div class="center">
+        <form id="postform" class="form-group" method="POST" action="{%url 'filter_courses' %}">
+            {%csrf_token%}
+            <br>
+            <label>Filter courses:</label>
+                <br>
+                <input type="text" name="department" placeholder="departmentid" required>
+                <br>
+                <input type="text" name="campus" placeholder="campus" required>
+                <br>
+                <input type="text" name="mincredits" placeholder="minimum credits" required>
+                <br>
+                <input type="text" name="maxcredits" placeholder="maximum credits" required>
+                <br>
+                <input type="submit" name="submit" value="View Courses">
+                <br>
+        </form>
+    </div>
+
+    <a href="{%url 'redirect' %}"> <p style="text-align:center">Logout</p></a>
+</body>
+</html>

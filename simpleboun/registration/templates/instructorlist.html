@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Instructor List</title>
+        <link rel="stylesheet" type="text/css" href="../static/csstemplate.css">
+    </head>
+
+
+    <body>
+        <h2>instructor List</h2>
+    <div class="table-wrapper" >
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>E-mail</th>
+                    <th>Department</th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in instructors %}
+            <tr>
+                {% for value in row %}
+                <td>
+                    {{value}}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            <tbody>
+        </table>
+    </div>
+    </body>
+</html>
+
+
+
+
+<!-- <div class="container">
+    <table class="center">
+        <colgroup>
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 40%;">
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 60%;">
+        </colgroup>
+        <tr>
+            <th>username</th>
+            <th>name</th>
+            <th>surname</th>
+            <th>email</th>
+            <th>department</th>
+            <th>title</th>
+        </tr>
+        {% for row in instructors %}
+        <tr>
+            {% for value in row %}
+            <td>
+                {{value}}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div> -->

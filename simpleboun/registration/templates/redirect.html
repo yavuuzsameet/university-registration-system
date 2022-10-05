@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Redirecting...</title>
+    <link rel="stylesheet" type="text/css" href="../static/logincss.css">
+</head>
+
+<body>
+    <div class="login-box">
+        {% if action_fail%}
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            Incorrect username or password.
+          </div>
+        {% endif %}
+
+        <form id="postform" class="user-box" method="POST" action="{%url 'index_student' %}">
+            {%csrf_token%}
+            <br>
+            <input type="submit" name="submit" value="Student Login">
+            <br>
+        </form>
+
+        <form id="postform" class="user-box" method="POST" action="{%url 'index_instructor' %}">
+            {%csrf_token%}
+            <br>
+            <input type="submit" name="submit" value="Instructor Login">
+            <br>
+        </form>
+
+        <form id="postform" class="user-box" method="POST" action="{%url 'index_manager' %}">
+            {%csrf_token%}
+            <br>
+            <input type="submit" name="submit" value="Manager Login">
+            <br>
+        </form>
+
+    </div>
+
+</body>
+
+</html>
+
+
+<!-- <div class="center">
+    <form id="postform" class="form-group" method="POST" action="{%url 'index_student' %}">
+        {%csrf_token%}
+        <br>
+        <input type="submit" name="submit" value="Student Login">
+        <br>
+    </form>
+</div>
+<div class="center">
+    <form id="postform" class="form-group" method="POST" action="{%url 'index_instructor' %}">
+        {%csrf_token%}
+        <br>
+        <input type="submit" name="submit" value="Instructor Login">
+        <br>
+    </form>
+</div>
+<div class="center">
+    <form id="postform" class="form-group" method="POST" action="{%url 'index_manager' %}">
+        {%csrf_token%}
+        <br>
+        <input type="submit" name="submit" value="Manager Login">
+        <br>
+    </form>
+</div> -->

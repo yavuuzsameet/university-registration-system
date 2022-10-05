@@ -1,0 +1,10 @@
+Django==4.0.4
+django-crispy-forms==1.14.0
+django-environ==0.8.1
+environ==1.0
+mysql-connector-python==8.0.29
+mysqlclient==2.1.0
+passlib==1.7.4
+protobuf==3.20.1
+sqlparse==0.4.2
+tzdata==2022.1

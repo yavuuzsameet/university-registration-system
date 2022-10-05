@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Taken Courses</title>
+        <link rel="stylesheet" type="text/css" href="../static/csstemplate.css">
+    </head>
+    <body>
+        <h2>Taken Course List</h2>
+        <div class="table-wrapper" >
+            <table class="fl-table">
+                <thead>
+                    <tr>
+                        <th>Course ID</th>
+                        <th>Course Name</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in courses %}
+                <tr>
+                    {% for value in row %}
+                    <td>
+                        {{value}}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                <tbody>
+            </table>
+        </div>
+    </body>
+        
+</html>

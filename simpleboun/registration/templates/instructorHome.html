@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  	<title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
+        form { 
+            margin: 0 auto; 
+            width:250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h2> Welcome back {{username}}.</h2>
+    </div>
+    {% if action_fail %}
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">INVALID OPERATION</h4>
+        <p>Please try again.</p>
+    </div>
+    {% endif %}
+
+    <div class="center">
+        <form id="postform" class="form-group" method="POST" action="{%url 'view_available_classrooms' %}">
+                {%csrf_token%}
+                <br>
+                <label>View available classrooms:</label>
+                <br>
+                <input type="text" name="timeslot" placeholder="timeslot" required>
+                <br>
+                <input type="submit" name="submit" value="View classrooms">
+                <br>
+        </form>
+    </div>
+
+    <div class="center">
+        <form id="postform" class="form-group" method="POST" action="{%url 'add_course' %}">
+                {%csrf_token%}
+                <br>
+                <label>Add new course:</label>
+                <br>
+                <input type="text" name="courseid" placeholder="courseid" required>
+                <br>
+                <input type="text" name="name" placeholder="name" required>
+                <br>
+                <input type="text" name="credits" placeholder="credits" required>
+                <br>
+                <input type="text" name="classroomid" placeholder="classroomid" required>
+                <br>
+                <input type="text" name="timeslot" placeholder="timeslot" required>
+                <br>
+                <input type="text" name="quota" placeholder="quota" required>
+                <br>
+                <input type="submit" name="submit" value="Add Course">
+                <br>
+        </form>
+    </div>
+
+    <div class="center">
+        <form id="postform" class="form-group" method="POST" action="{%url 'add_prerequisite' %}">
+                {%csrf_token%}
+                <br>
+                <label>Add prerequisite:</label>
+                <br>
+                <input type="text" name="courseid" placeholder="courseid" required>
+                <br>
+                <input type="text" name="pre_courseid" placeholder="prerequisite id" required>
+                <br>
+                <input type="submit" name="submit" value="Add Prerequisite">
+                <br>
+        </form>
+    </div>
+
+    <div class="center">
+        <form id="postform" class="form-group" method="POST" action="{%url 'view_self_courses' %}">
+                {%csrf_token%}
+                <br>
+                <label>View self courses:</label>
+                <br>
+                <input type="submit" name="submit" value="View Courses">
+                <br>
+        </form>
+    </div>
+
+    <div class="center">
+        <form id="postform" class="form-group" method="POST" action="{%url 'view_students_byCourseId' %}">
+                {%csrf_token%}
+                <br>
+                <label>View students who takes the course:</label>
+                <br>
+                <input type="text" name="courseid" placeholder="courseid" required>
+                <br>
+                <input type="submit" name="submit" value="View Students">
+                <br>
+        </form>
+    </div>
+    
+    <div class="center">
+        <form id="postform" class="form-group" method="POST" action="{%url 'update_course' %}">
+                {%csrf_token%}
+                <br>
+                <label>Update name of a course:</label>
+                <br>
+                <input type="text" name="courseid" placeholder="courseid" required>
+                <br>
+                <input type="text" name="name" placeholder="new name" required>
+                <br>
+                <input type="submit" name="submit" value="Update name">
+                <br>
+        </form>
+    </div>
+
+    <div class="center">
+        <form id="postform" class="form-group" method="POST" action="{%url 'give_grade' %}">
+                {%csrf_token%}
+                <br>
+                <label>Give grade to a student:</label>
+                <br>
+                <input type="text" name="courseid" placeholder="courseid" required>
+                <br>
+                <input type="text" name="studentid" placeholder="studentid" required>
+                <br>
+                <input type="text" name="grade" placeholder="grade" required>
+                <br>
+                <input type="submit" name="submit" value="Give grade">
+                <br>
+        </form>
+    </div>
+
+    <a href="{%url 'redirect' %}"> <p style="text-align:center">Logout</p></a>
+</body>
+</html>
